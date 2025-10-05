@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://pjmfpqw5ow2x"]
+
+[ext_resource type="Script" uid="uid://mtxyijgy70cb" path="res://directional_light_3d.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cbyjkho7q0mfx" path="res://Character.tscn" id="2_fj7yv"]
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
+albedo_color = Color(0, 0.42352942, 0, 1)
+metallic_specular = 0.08
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fj7yv"]
+material = SubResource("StandardMaterial3D_f3sb7")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fj7yv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9766723, 0.21473533, 0, -0.21473533, 0.9766723, 0, 3.841842, 4.540131)
+script = ExtResource("1_f3sb7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_gv5m4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_fj7yv")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40436435, 3.4305494)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6072941, 0)
+mesh = SubResource("BoxMesh_f3sb7")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6072941, 0)
+shape = SubResource("BoxShape3D_fj7yv")

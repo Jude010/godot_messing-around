@@ -1,1 +1,10 @@
 GPUParticles3D
+RigidBody3D
+CollisionShape3D
+MeshInstance3D
+Camera3D
+CharacterBody3D
+DirectionalLight3D
+WorldEnvironment
+OmniLight3D
+StaticBody3D

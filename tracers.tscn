@@ -1,11 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://c365fn0slsh8u"]
+[gd_scene load_steps=6 format=3 uid="uid://c365fn0slsh8u"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ymwt0"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_ss1cp"]
+[sub_resource type="TorusMesh" id="TorusMesh_ymwt0"]
+inner_radius = 0.101
+outer_radius = 0.055
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ss1cp"]
+lifetime_randomness = 0.25
+particle_flag_align_y = true
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymwt0"]
+emission_enabled = true
+emission = Color(0.95, 0.7777333, 0.304, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ricn"]
+material = SubResource("StandardMaterial3D_ymwt0")
+radius = 0.01
+height = 0.2
+
+[node name="Gun_shoot" type="Node3D"]
+
+[node name="Tracers" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 5
+sub_emitter = NodePath("../sparks")
+lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_ymwt0")
-draw_pass_1 = SubResource("QuadMesh_ss1cp")
+draw_pass_1 = SubResource("TorusMesh_ymwt0")
+
+[node name="sparks" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ss1cp")
+draw_pass_1 = SubResource("CapsuleMesh_1ricn")

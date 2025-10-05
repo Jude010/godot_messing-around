@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbyjkho7q0mfx"]
+
+[ext_resource type="Script" uid="uid://wvwfvu52krki" path="res://character_body_3d.gd" id="1_oolk3"]
+[ext_resource type="Script" uid="uid://dic8fbu81rctm" path="res://player_camera.gd" id="2_7ig0a"]
+[ext_resource type="Script" uid="uid://5ui5i1duenrp" path="res://gun.gd" id="2_atbvg"]
+[ext_resource type="PackedScene" uid="uid://c365fn0slsh8u" path="res://tracers.tscn" id="3_cxxw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ig0a"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lcuhw"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ig0a"]
+size = Vector3(0.1, 0.1, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_oolk3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7ig0a")
+
+[node name="body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lcuhw")
+
+[node name="gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24391675, -0.6071826)
+mesh = SubResource("BoxMesh_7ig0a")
+script = ExtResource("2_atbvg")
+
+[node name="shoot" parent="gun" instance=ExtResource("3_cxxw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5877272)
+
+[node name="Player_Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.91181225, 0.41060746, 0, -0.41060746, 0.91181225, 0, 1.6469907, 1.8762403)
+fov = 77.59849
+script = ExtResource("2_7ig0a")
