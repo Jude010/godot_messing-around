@@ -1,7 +1,5 @@
-res://tracers.tscn
-res://world.tscn
-res://directional_light_3d.gd
 res://Character.tscn
-res://character_body_3d.gd
-res://player_camera.gd
 res://gun.gd
+res://character_body_3d.gd
+res://world.tscn
+res://tracers.tscn

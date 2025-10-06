@@ -1,4 +1,12 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759685900
+::res://::1759741926
+Character.tscn::PackedScene::4893139978762640697::1759699351::0::1::::<><><>0<>0<><>::uid://wvwfvu52krki::::res://character_body_3d.gd<>uid://dic8fbu81rctm::::res://player_camera.gd<>uid://5ui5i1duenrp::::res://gun.gd<>uid://c365fn0slsh8u::::res://tracers.tscn
+character_body_3d.gd::GDScript::1588852330968352608::1759699120::0::1::::<>CharacterBody3D<><>0<>0<><>::
+collision_shape_3d.gd::GDScript::63745750264993738::1759690987::0::1::::<>CollisionShape3D<><>0<>0<><>::
+directional_light_3d.gd::GDScript::882929085266882729::1759690039::0::1::::<>DirectionalLight3D<><>0<>0<><>::
+gun.gd::GDScript::2147492634496367429::1759699390::0::1::::<>MeshInstance3D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::4299931910098145817::1759685793::1759685793::1::::<><><>0<>0<>2be7e7cbf648cecea7d7ed5142124ab1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-tracers.tscn::PackedScene::6803955860636396626::1759685793::0::1::::<><><>0<>0<><>::
+mesh_instance_3d.gd::GDScript::9106300056026646804::1759690991::0::1::::<>MeshInstance3D<><>0<>0<><>::
+player_camera.gd::GDScript::7726914230376722914::1759694077::0::1::::<>Camera3D<><>0<>0<><>::
+tracers.tscn::PackedScene::6803955860636396626::1759701771::0::1::::<><><>0<>0<><>::
+world.tscn::PackedScene::1072150400847114645::1759699524::0::1::::<><><>0<>0<><>::uid://mtxyijgy70cb::::res://directional_light_3d.gd<>uid://cbyjkho7q0mfx::::res://Character.tscn
