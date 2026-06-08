@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj4k01u0f3og6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x44vo"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xo7jo"]
+
+[node name="line_shot" type="GPUParticles3D"]
+process_material = SubResource("ShaderMaterial_x44vo")
+draw_pass_1 = SubResource("ArrayMesh_xo7jo")

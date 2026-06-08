@@ -6,21 +6,26 @@ extends CharacterBody3D
 func _physics_process(delta):
 	
 	var rot:int = 0
-	var dir:int = 0
+	var dir:Vector3 = Vector3.ZERO
 	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("Q"):
 		rot += 1
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("E"):
 		rot -= 1
 	
 	if Input.is_action_pressed("forward"):
-		dir += 1
+		dir.z -= 1
 	if Input.is_action_pressed("back"):
-		dir -= 1
+		dir.z += 1
+	if Input.is_action_pressed("left"):
+		dir.x -= 1
+	if Input.is_action_pressed("right"):
+		dir.x += 1
+	
 	
 	rotate_y(speed_r * rot * delta)
 	
-	velocity = global_transform.basis * Vector3.FORWARD * speed * dir
+	velocity = global_transform.basis * speed * dir * delta
 	
 	
 	move_and_slide()

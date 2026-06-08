@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ci3hgxrqxctpf"]
+
+[node name="Node3D" type="Node3D" unique_id=619139482]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1306264936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061634377, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=339288642]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+radius = 0.051757813
+height = 0.7954712
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=750444152]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.062861204, 0.16310745)
+size = Vector3(0.22351074, 0.20166016, 0.13305664)
+
+[node name="barrel" type="Marker3D" parent="." unique_id=31138351]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.1914325e-05, 0.059720382, -0.39692223)
+
+[node name="Attachment_point" type="Marker3D" parent="." unique_id=2037439815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004250422, 0.17104866)

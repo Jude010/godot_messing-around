@@ -1,5 +1,5 @@
-res://Character.tscn
-res://gun.gd
-res://character_body_3d.gd
 res://world.tscn
-res://tracers.tscn
+res://Laser.tscn
+res://laser.gd
+res://Character.tscn
+res://character_body_3d.gd
