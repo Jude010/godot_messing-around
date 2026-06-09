@@ -10,6 +10,8 @@ sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
 [sub_resource type="Environment" id="Environment_fj7yv"]
 background_mode = 2
 sky = SubResource("Sky_fj7yv")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
 glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]

@@ -2,31 +2,19 @@
 
 [ext_resource type="Script" uid="uid://ch12axt3arm8p" path="res://laser.gd" id="1_c4r1g"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4r1g"]
+albedo_color = Color(1, 0, 0, 1)
+
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_y3ayh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4r1g"]
-transparency = 1
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_c4r1g"]
-radius = 0.25
-height = 0.5
-
 [node name="RayCast3D" type="RayCast3D" unique_id=357473687]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -20)
 script = ExtResource("1_c4r1g")
+mat = SubResource("StandardMaterial3D_c4r1g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1350958724]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ImmediateMesh_y3ayh")
-surface_material_override/0 = SubResource("StandardMaterial3D_c4r1g")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1144892395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007183552, -3.5785015)
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1097587029]
-mesh = SubResource("SphereMesh_c4r1g")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1153310928]
-mesh = SubResource("SphereMesh_c4r1g")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1894765, -3.5785015)
