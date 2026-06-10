@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d2gyruoow0h4j"]
+
+[ext_resource type="Script" uid="uid://b0nkhhitaoofp" path="res://bullet_1.gd" id="1_w7776"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_thkgj"]
+direction = Vector3(0, 1, 1)
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w7776"]
+radius = 0.025
+height = 0.05
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w7776"]
+radius = 0.05078125
+height = 0.18077087
+
+[node name="Bullet" type="RigidBody3D" unique_id=57287903]
+top_level = true
+input_ray_pickable = false
+mass = 0.1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_w7776")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1157094590]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=5894566]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.0925176e-09, 0.024993896)
+radius = 0.05
+height = 0.1
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=1649208450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025487304)
+radius = 0.05
+radial_segments = 8
+rings = 8
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=108813367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07843953)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_thkgj")
+draw_pass_1 = SubResource("SphereMesh_w7776")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=751512571]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0007788966, 0.015501618)
+shape = SubResource("CapsuleShape3D_w7776")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

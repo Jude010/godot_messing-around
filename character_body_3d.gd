@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	rotate_y(speed_r * rot * delta)
 	
-	velocity = global_transform.basis * speed * dir * delta
+	velocity = global_transform.basis * speed * dir
 	
 	
 	move_and_slide()

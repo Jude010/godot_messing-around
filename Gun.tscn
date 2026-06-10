@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://ci3hgxrqxctpf"]
 
+[ext_resource type="Script" uid="uid://d38r1btte7m4k" path="res://gun_2.gd" id="1_7c1qe"]
+[ext_resource type="PackedScene" uid="uid://wm2ldo2g3s6h" path="res://Laser.tscn" id="1_jpqjm"]
+[ext_resource type="PackedScene" uid="uid://d2gyruoow0h4j" path="res://bullet_1.tscn" id="2_7c1qe"]
+
 [node name="Node3D" type="Node3D" unique_id=619139482]
+script = ExtResource("1_7c1qe")
+proj = ExtResource("2_7c1qe")
+velocity = 15.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1306264936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061634377, 0)
@@ -14,8 +21,11 @@ height = 0.7954712
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.062861204, 0.16310745)
 size = Vector3(0.22351074, 0.20166016, 0.13305664)
 
-[node name="barrel" type="Marker3D" parent="." unique_id=31138351]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.1914325e-05, 0.059720382, -0.39692223)
+[node name="Muzzle" type="Marker3D" parent="." unique_id=31138351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1914325e-05, 0.059720382, -0.40041006)
 
 [node name="Attachment_point" type="Marker3D" parent="." unique_id=2037439815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004250422, 0.17104866)
+
+[node name="RayCast3D" parent="." unique_id=357473687 instance=ExtResource("1_jpqjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042060614, 0.17182073, 0.050564468)

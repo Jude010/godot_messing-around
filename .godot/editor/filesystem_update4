@@ -1,5 +1,6 @@
 res://Character_2.tscn
-res://character_2.gd
-res://Laser.tscn
-res://laser.gd
+res://gun_2.gd
+res://bullet_1.tscn
+res://Gun.tscn
 res://world.tscn
+res://bullet_1.gd
