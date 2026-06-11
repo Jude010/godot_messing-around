@@ -56,6 +56,7 @@ mesh = SubResource("PlaneMesh_fj7yv")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=569498271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.733039, 0, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -90,9 +91,5 @@ shape = SubResource("BoxShape3D_fj7yv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6031908, 0)
 size = Vector3(15, 1, 1)
 
-[node name="CharacterBody3D2" parent="." unique_id=30439754 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46176028, 5.519774)
-speed = 3
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=580432821]
-transform = Transform3D(0.16764352, -0.46840793, 0.86746174, 0.008491337, 0.88056785, 0.47384396, -0.9858111, -0.07207094, 0.1515989, 3.5340242, 2.3918736, 2.8303547)
+[node name="Charcter" parent="." unique_id=30439754 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6164124, 0)

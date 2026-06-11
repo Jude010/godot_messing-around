@@ -1,0 +1,5 @@
+[gd_resource type="JointLimitationCone3D" format=3 uid="uid://dfgb8gnxh4k0j"]
+
+[resource]
+resource_name = "body_limit"
+angle = 3.1415927

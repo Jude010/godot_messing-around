@@ -1,9 +1,10 @@
 extends CharacterBody3D
 
-@export var speed:int = 1
-@export var max_speed:int = 5
+@export var speed:float = 1
+@export var max_speed:float = 5
 @export var speed_r:int = 3
 @export var damping:float = 0.9
+@export var body:Node3D
 
 
 var velocity_accumulator:Vector3 = Vector3.ZERO
@@ -35,7 +36,7 @@ func movement() ->void:
 	velocity_accumulator = velocity_accumulator.limit_length(max_speed)
 	
 	if dir != Vector3.ZERO :
-		$MeshInstance3D.global_rotation.y = rotate_toward($MeshInstance3D.global_rotation.y , camera.global_rotation.y , PI/32)
+		body.global_rotation.y = rotate_toward(body.global_rotation.y , camera.global_rotation.y , PI/32)
 	
 	
 

@@ -1,0 +1,5 @@
+[gd_resource type="JointLimitationCone3D" format=3 uid="uid://dltj5jhclf455"]
+
+[resource]
+resource_name = "Leg_limit"
+angle = 4.537856
