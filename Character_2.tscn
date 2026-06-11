@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://wvwfvu52krki" path="res://character_body_3d.gd" id="1_jnpbt"]
 [ext_resource type="PackedScene" uid="uid://ci3hgxrqxctpf" path="res://Gun.tscn" id="2_ogg8d"]
+[ext_resource type="Script" uid="uid://dic8fbu81rctm" path="res://player_camera.gd" id="3_njhix"]
+[ext_resource type="Script" uid="uid://cnliq5m5m3gak" path="res://Camera_arm.gd" id="4_uirgk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iwodf"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -9,18 +11,43 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jnpbt"]
 size = Vector3(0.5, 0.5, 0.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_uirgk"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uirgk"]
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=30439754]
+collision_layer = 2
 script = ExtResource("1_jnpbt")
-speed = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=384035793]
 mesh = SubResource("BoxMesh_iwodf")
 
+[node name="Gun1" parent="MeshInstance3D" unique_id=619139482 instance=ExtResource("2_ogg8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14462459, 0.24080622, 0)
+
+[node name="Gun2" parent="MeshInstance3D" unique_id=971094081 instance=ExtResource("2_ogg8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12282792, 0.24080622, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1366315929]
 shape = SubResource("BoxShape3D_jnpbt")
 
-[node name="Gun1" parent="." unique_id=619139482 instance=ExtResource("2_ogg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14462459, 0.24080622, 0)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=114400108]
+top_level = true
+script = ExtResource("3_njhix")
+ray_len = 100.0
 
-[node name="Gun2" parent="." unique_id=971094081 instance=ExtResource("2_ogg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12282792, 0.24080622, 0)
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=452287391]
+target_position = Vector3(0, 0, -10)
+
+[node name="Meshinstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=664902772]
+mesh = SubResource("BoxMesh_uirgk")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1304468304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0988483, 0)
+shape = SubResource("SphereShape3D_uirgk")
+spring_length = 2.0
+script = ExtResource("4_uirgk")
+
+[node name="Camera_marker" type="Marker3D" parent="SpringArm3D" unique_id=1827488487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.033934772, 0.736941)

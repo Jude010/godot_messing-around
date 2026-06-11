@@ -7,6 +7,9 @@ extends Node3D
 
 var projectiles:Array[RigidBody3D]
 
+var view:Camera3D 
+var target:Node3D 
+
 func shoot() ->void:
 	#spawn bullet with velocity at muzzle
 	if projectiles.size() >= max_proj:
@@ -27,3 +30,14 @@ func _input(event) -> void:
 		
 func remove_bullet(bullet:RigidBody3D) -> void:
 	projectiles.erase(bullet)
+
+
+func _ready() -> void:
+	view = $"../../Camera3D"
+	target = $target_node
+
+func _physics_process(delta: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(target,"global_position" , view.target_pos , .1)
+	
+	look_at(target.global_position)

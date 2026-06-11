@@ -923,7 +923,7 @@ mesh = SubResource("ArrayMesh_hb48o")
 skeleton = NodePath("")
 
 [node name="Outer_FL" type="BoneAttachment3D" parent="hexapod/Armature/Skeleton3D" unique_id=1213858710]
-transform = Transform3D(-0.5769818, 0.69809264, -0.42397887, 0.5919014, -0.00030796195, -0.8060101, -0.5628005, -0.7160069, -0.41302446, 1.5582817, -0.028991725, -1.6361078)
+transform = Transform3D(-0.56063855, 0.71980953, -0.40933827, 0.5918018, 0.0025393576, -0.8060793, -0.5791843, -0.6941663, -0.42740852, 1.5935073, -0.018622512, -1.6006622)
 bone_name = "Outer.FL"
 bone_idx = 15
 
@@ -933,7 +933,7 @@ mesh = SubResource("ArrayMesh_fvoba")
 skeleton = NodePath("")
 
 [node name="Knee_FL" type="BoneAttachment3D" parent="hexapod/Armature/Skeleton3D" unique_id=10511958]
-transform = Transform3D(-0.64899755, 0.69701487, 0.304913, -0.42686522, -0.0018618762, -0.9043132, -0.62975216, -0.7170539, 0.29873985, 1.1302509, -0.02784836, -1.1957715)
+transform = Transform3D(-0.6254175, 0.7197878, 0.30126056, -0.42695433, 0.0074852253, -0.9042421, -0.65311766, -0.69415337, 0.3026352, 1.151492, -0.023219118, -1.1743889)
 bone_name = "Knee.FL"
 bone_idx = 14
 
@@ -943,7 +943,7 @@ mesh = SubResource("ArrayMesh_iclrt")
 skeleton = NodePath("")
 
 [node name="Inner_FL" type="BoneAttachment3D" parent="hexapod/Armature/Skeleton3D" unique_id=2055085164]
-transform = Transform3D(-0.5222289, 0.6980914, 0.4898418, -0.6831769, 0.0013363954, -0.7302516, -0.5104371, -0.71600705, 0.47622213, 0.44776773, -0.029154927, -0.4957732)
+transform = Transform3D(-0.5038647, 0.71981835, 0.47747394, -0.6832458, 0.0060715065, -0.73016304, -0.5284839, -0.6941355, 0.48875383, 0.44776773, -0.029154927, -0.4957732)
 bone_name = "Inner.FL"
 bone_idx = 13
 
@@ -1139,7 +1139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0027244687, 0.012528956, -1
 top_level = true
 
 [node name="FL_Target" type="Marker3D" parent="hexapod" unique_id=100636031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6980875, -0.029406786, -2.5936453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6980875, -0.014511406, -2.7314098)
 top_level = true
 
 [node name="ML_Target" type="Marker3D" parent="hexapod" unique_id=534821462]

@@ -2,19 +2,44 @@
 
 [ext_resource type="Script" uid="uid://b0nkhhitaoofp" path="res://bullet_1.gd" id="1_w7776"]
 
+[sub_resource type="Curve" id="Curve_bmlrp"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.1325967, 1), 0.0, 0.0, 0, 0, Vector2(0.83425415, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yp86r"]
+curve = SubResource("Curve_bmlrp")
+
+[sub_resource type="Gradient" id="Gradient_bmlrp"]
+offsets = PackedFloat32Array(0.032258064, 0.683871, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.18666673, 0.18666673, 0.18666673, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yp86r"]
+gradient = SubResource("Gradient_bmlrp")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_thkgj"]
-direction = Vector3(0, 1, 1)
+direction = Vector3(0, 0, 1)
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(0, 0, 0)
+color = Color(0.77059376, 0.4329453, 0.26182318, 1)
+color_ramp = SubResource("GradientTexture1D_yp86r")
+alpha_curve = SubResource("CurveTexture_yp86r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmlrp"]
+transparency = 1
+vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_w7776"]
+material = SubResource("StandardMaterial3D_bmlrp")
 radius = 0.025
 height = 0.05
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w7776"]
-radius = 0.05078125
-height = 0.18077087
+[sub_resource type="SphereShape3D" id="SphereShape3D_w7776"]
+radius = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmlrp"]
+height = 0.1
+radius = 0.05
 
 [node name="Bullet" type="RigidBody3D" unique_id=57287903]
 top_level = true
@@ -40,13 +65,19 @@ rings = 8
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=108813367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07843953)
-amount = 50
+amount = 100
+lifetime = 1.5
+visibility_aabb = AABB(-4, -4, -4, 10000, 8, 10000)
 process_material = SubResource("ParticleProcessMaterial_thkgj")
 draw_pass_1 = SubResource("SphereMesh_w7776")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=751512571]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0007788966, 0.015501618)
-shape = SubResource("CapsuleShape3D_w7776")
+[node name="Sphere_collider" type="CollisionShape3D" parent="." unique_id=751512571]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0007788973, -0.023606047)
+shape = SubResource("SphereShape3D_w7776")
+
+[node name="Cylander_collider" type="CollisionShape3D" parent="." unique_id=994900490]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.0925176e-09, 0.024993896)
+shape = SubResource("CylinderShape3D_bmlrp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

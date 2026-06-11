@@ -7,7 +7,7 @@
 [node name="Node3D" type="Node3D" unique_id=619139482]
 script = ExtResource("1_7c1qe")
 proj = ExtResource("2_7c1qe")
-velocity = 15.0
+velocity = 50.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1306264936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061634377, 0)
@@ -29,3 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004250422, 0.17104866)
 
 [node name="RayCast3D" parent="." unique_id=357473687 instance=ExtResource("1_jpqjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042060614, 0.17182073, 0.050564468)
+
+[node name="target_node" type="Node3D" parent="." unique_id=1923201691]

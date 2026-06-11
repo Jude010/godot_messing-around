@@ -1,6 +1,13 @@
 res://Character_2.tscn
-res://gun_2.gd
-res://bullet_1.tscn
-res://Gun.tscn
+res://player_camera.gd
+res://Camera_arm.gd
 res://world.tscn
+res://Gun.tscn
+res://gun_2.gd
+res://Laser.tscn
+res://laser.gd
+res://Hexapod.tscn
+res://character_body_3d.gd
 res://bullet_1.gd
+res://bullet_1.tscn
+res://Bullet_Trail.gd

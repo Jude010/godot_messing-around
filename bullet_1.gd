@@ -8,11 +8,12 @@ func set_vel(vel: float) -> void :
 
 
 func _on_body_entered(_body: Node) -> void:
-	get_parent().remove_bullet(self)
-	for i in get_children():
-		if ! i is GPUParticles3D:
-			i.queue_free()
-	mark_for_delete = true
+	#get_parent().remove_bullet(self)
+	#for i in get_children():
+		#if ! i is GPUParticles3D:
+			#i.queue_free()
+	#mark_for_delete = true
+	$GPUParticles3D.emitting = false
 
 
 func _on_gpu_particles_3d_finished() -> void:
