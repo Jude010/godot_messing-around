@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dic8fbu81rctm" path="res://player_camera.gd" id="3_njhix"]
 [ext_resource type="Script" uid="uid://cnliq5m5m3gak" path="res://Camera_arm.gd" id="4_uirgk"]
 [ext_resource type="PackedScene" uid="uid://cp8281no25i8c" path="res://Hexapod.tscn" id="5_acde3"]
+[ext_resource type="Script" uid="uid://545a8bi4mrq" path="res://collision_shape_3d.gd" id="6_l2dkh"]
+[ext_resource type="Script" uid="uid://blw1nid6vr72y" path="res://surface_finder.gd" id="7_4kqpx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uirgk"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -14,9 +16,16 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_acde3"]
 points = PackedVector3Array(0.0405812, 0.25, 0.6518519, -0.042559277, -0.25, -0.6814816, -0.14891647, -0.2498154, -0.6383275, 0.042425804, -0.25, 0.6814816, 0.65185195, 0.25, -0.040581223, -0.6518519, 0.25, -0.040708836, 0.68148166, -0.25, 0.042559244, -0.5323242, -0.25, 0.40451294, -0.040708866, 0.25, -0.6518519, 0.48976487, -0.25, -0.4896314, -0.489765, -0.25, -0.48976487, 0.4684707, 0.25, 0.46834305, -0.46847078, 0.25, 0.4684707, 0.4684707, 0.25, -0.46834305, 0.48976487, -0.25, 0.4896314, -0.68148166, -0.25, 0.042559244, -0.46847078, 0.25, -0.4684707, -0.404513, -0.25, 0.5323241, 0.042425804, -0.25, -0.6814816, -0.040708866, 0.25, 0.6518519, -0.6518519, 0.25, 0.040708836, -0.68148166, -0.25, -0.042559244, 0.68148166, -0.25, -0.04242583, 0.0405812, 0.25, -0.6518519, 0.6518519, 0.25, 0.040708836, -0.042559277, -0.25, 0.6814816, -0.489765, -0.25, 0.48976487, 0.40464637, -0.25, -0.5323241, 0.40464637, -0.25, 0.5323241, 0.5323241, -0.25, -0.40451294, 0.5323241, -0.25, 0.40451294, -0.5323242, -0.25, -0.40451294)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kqpx"]
+radius = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kqpx"]
+size = Vector3(0.1, 2, 0.1)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=30439754 node_paths=PackedStringArray("body")]
 collision_layer = 2
 script = ExtResource("1_jnpbt")
+speed_r = 1.5
 body = NodePath("hexapod")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=114400108]
@@ -51,3 +60,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36240366, 0.2672931, -0.16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=830218387]
 transform = Transform3D(-0.92387956, 0, -0.38268337, 0, -1, 0, 0.38268337, 0, -0.92387956, 0, 0.38658917, 0)
 shape = SubResource("ConvexPolygonShape3D_acde3")
+script = ExtResource("6_l2dkh")
+
+[node name="Surface_Finder" type="ShapeCast3D" parent="." unique_id=2066783691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
+shape = SubResource("SphereShape3D_4kqpx")
+target_position = Vector3(0, 0, 0)
+script = ExtResource("7_4kqpx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Surface_Finder" unique_id=1596141517]
+mesh = SubResource("BoxMesh_4kqpx")

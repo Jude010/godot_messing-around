@@ -1,10 +1,4 @@
-res://Hexapod.tscn
-res://Leg_limit_cone.tres
-res://world.tscn
-res://hexapod.gd
-res://bullet_1.tscn
-res://Target_ray.gd
-res://Leg_motion.gd
 res://Character_2.tscn
-res://character_body_3d.gd
-res://target_offset.gd
+res://hexapod.gd
+res://Camera_arm.gd
+res://world.tscn

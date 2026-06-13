@@ -26,6 +26,12 @@ metallic_specular = 0.08
 material = SubResource("StandardMaterial3D_f3sb7")
 size = Vector2(100, 100)
 
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+size = Vector3(1, 20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aqk2v"]
+data = PackedVector3Array(-0.5, 10, 10, 0.5, 10, 10, -0.5, -10, 10, 0.5, 10, 10, 0.5, -10, 10, -0.5, -10, 10, 0.5, 10, -10, -0.5, 10, -10, 0.5, -10, -10, -0.5, 10, -10, -0.5, -10, -10, 0.5, -10, -10, 0.5, 10, 10, 0.5, 10, -10, 0.5, -10, 10, 0.5, 10, -10, 0.5, -10, -10, 0.5, -10, 10, -0.5, 10, -10, -0.5, 10, 10, -0.5, -10, -10, -0.5, 10, 10, -0.5, -10, 10, -0.5, -10, -10, 0.5, 10, 10, -0.5, 10, 10, 0.5, 10, -10, -0.5, 10, 10, -0.5, 10, -10, 0.5, 10, -10, -0.5, -10, 10, 0.5, -10, 10, -0.5, -10, -10, 0.5, -10, 10, 0.5, -10, -10, -0.5, -10, -10)
+
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
@@ -36,6 +42,13 @@ size = Vector3(15, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
 size = Vector3(15, 1, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_f3sb7"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f3sb7"]
+radius = 5.0
+
 [node name="world" type="Node3D" unique_id=1795086241]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1860661122]
@@ -44,16 +57,42 @@ environment = SubResource("Environment_fj7yv")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1961405330]
 transform = Transform3D(1, 0, 0, 0, 0.5035176, 0.86398494, 0, -0.86398494, 0.5035176, 0, 3.841842, 4.540131)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1158313630]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1158313630]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1087114334]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1087114334]
 shape = SubResource("WorldBoundaryShape3D_gv5m4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=705328501]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=705328501]
 mesh = SubResource("PlaneMesh_fj7yv")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1941848261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.170488, 0, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=590829840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.651899, 0)
+mesh = SubResource("BoxMesh_tlwt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=1715258175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.651899, 0)
+shape = SubResource("ConcavePolygonShape3D_aqk2v")
+
+[node name="Celing" type="StaticBody3D" parent="." unique_id=1626442354]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -20.253086, 19.455957, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Celing" unique_id=518049293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.651899, 0)
+mesh = SubResource("BoxMesh_tlwt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Celing" unique_id=1790936354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.651899, 0)
+shape = SubResource("ConcavePolygonShape3D_aqk2v")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=569498271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.733039, 0, 0)
@@ -93,3 +132,13 @@ size = Vector3(15, 1, 1)
 
 [node name="Charcter" parent="." unique_id=30439754 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6164124, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1800292423]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2087610214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.110185, -1.1148853, 14.166395)
+mesh = SubResource("SphereMesh_f3sb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=695274701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.110185, -1.1148853, 14.166395)
+shape = SubResource("SphereShape3D_f3sb7")

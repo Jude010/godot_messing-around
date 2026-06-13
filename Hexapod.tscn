@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cp8281no25i8c"]
 
 [ext_resource type="JointLimitationCone3D" uid="uid://dfgb8gnxh4k0j" path="res://Body_limit_cone.tres" id="1_2m872"]
+[ext_resource type="Script" uid="uid://djq76kl4jfxi4" path="res://hexapod.gd" id="1_m5tae"]
 [ext_resource type="JointLimitationCone3D" uid="uid://dltj5jhclf455" path="res://Leg_limit_cone.tres" id="2_5hhxc"]
 [ext_resource type="Script" uid="uid://b4ppg5i0qcx7" path="res://Leg_motion.gd" id="3_elmg1"]
 [ext_resource type="Script" uid="uid://dnf8q2rlsy6vc" path="res://target_offset.gd" id="4_2jqd4"]
@@ -647,6 +648,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c3c8h")
 
 [node name="hexapod" type="Node3D" unique_id=1050513818]
+script = ExtResource("1_m5tae")
 
 [node name="Armature" type="Node3D" parent="." unique_id=620115340]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -837,7 +839,7 @@ bones/25/rotation = Quaternion(0.6225007, 0.6205106, -0.3502155, 0.32374164)
 bones/25/scale = Vector3(0.99999994, 1, 0.9999999)
 
 [node name="Outer_ML" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=235137146]
-transform = Transform3D(0.99999666, -0.0025385963, -7.187715e-05, -0.002499003, -0.9886532, 0.15019521, -0.00045234594, -0.15019456, -0.98865616, 0.0024353256, 0.34839898, -1.8909209)
+transform = Transform3D(0.9999958, -0.0028110836, 0.00037168805, -0.002835425, -0.9901026, 0.1403161, -2.64314e-05, -0.14031667, -0.9901065, 0.0026968159, 0.3498244, -1.9003915)
 bone_name = "Outer.ML"
 bone_idx = 3
 
@@ -847,7 +849,7 @@ mesh = SubResource("ArrayMesh_3vbm2")
 skeleton = NodePath("")
 
 [node name="Knee_ML" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1822704599]
-transform = Transform3D(0.9999685, -0.0033746583, 0.0071609765, -0.007860644, -0.53036344, 0.8477338, 0.00093710935, -0.84776354, -0.5303734, 0.004507674, 0.6740905, -1.3703167)
+transform = Transform3D(0.99996614, -0.0031109662, 0.007607068, -0.00811709, -0.51887137, 0.8548137, 0.0012877928, -0.85484654, -0.51887906, 0.004607233, 0.66845876, -1.3754377)
 bone_name = "Knee.ML"
 bone_idx = 2
 
@@ -857,7 +859,7 @@ mesh = SubResource("ArrayMesh_8sk5s")
 skeleton = NodePath("")
 
 [node name="Inner_ML" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=883718594]
-transform = Transform3D(0.9999895, 0.0035692705, -0.0028482461, -0.00031187094, 0.67566305, 0.7372104, 0.004555759, -0.7372018, 0.67565715, 0.0010182067, 0.013534188, -0.64959764)
+transform = Transform3D(0.99998957, 0.0036711069, -0.0027196202, -0.0004401094, 0.6699025, 0.7424488, 0.00454749, -0.74243987, 0.66989714, 0.0010182067, 0.013534188, -0.64959764)
 bone_name = "Inner.ML"
 bone_idx = 1
 
@@ -867,7 +869,7 @@ mesh = SubResource("ArrayMesh_g4j1b")
 skeleton = NodePath("")
 
 [node name="Outer_MR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=5832555]
-transform = Transform3D(0.7805388, -0.012099087, 0.62499, 0.079808235, -0.989702, -0.118830256, 0.6199917, 0.14263114, -0.77153516, 0.011605366, 0.34934288, 1.8981853)
+transform = Transform3D(0.7797266, -0.01136145, 0.6260168, 0.07338965, -0.9912846, -0.10940033, 0.621804, 0.13124558, -0.77209723, 0.010898512, 0.35089004, 1.9091029)
 bone_name = "Outer.MR"
 bone_idx = 7
 
@@ -877,7 +879,7 @@ mesh = SubResource("ArrayMesh_8r60t")
 skeleton = NodePath("")
 
 [node name="Knee_MR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=904375068]
-transform = Transform3D(0.86338186, 0.0051074326, -0.50452495, -0.41939208, -0.5486523, -0.72325015, -0.28050268, 0.836035, -0.4715544, 0.008468937, 0.6862655, 1.3847833)
+transform = Transform3D(0.86413866, 0.0052603185, -0.50322604, -0.42241076, -0.5359654, -0.730965, -0.2735568, 0.8442235, -0.4609265, 0.007668197, 0.68002176, 1.3906724)
 bone_name = "Knee.MR"
 bone_idx = 6
 
@@ -887,7 +889,7 @@ mesh = SubResource("ArrayMesh_xfavi")
 skeleton = NodePath("")
 
 [node name="Inner_MR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1927204900]
-transform = Transform3D(0.70066017, 0.017072456, -0.71329075, -0.5258051, 0.68811655, -0.5000245, 0.48229066, 0.7253992, 0.49111268, -0.008221807, 0.013534188, 0.6756028)
+transform = Transform3D(0.70103014, 0.016253402, -0.7129463, -0.5293731, 0.68173, -0.5049833, 0.47782934, 0.7314232, 0.48651743, -0.008221807, 0.013534188, 0.6756028)
 bone_name = "Inner.MR"
 bone_idx = 5
 
@@ -897,7 +899,7 @@ mesh = SubResource("ArrayMesh_6k4cs")
 skeleton = NodePath("")
 
 [node name="Outer_FR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=847507932]
-transform = Transform3D(0.9838978, 0.084322095, -0.15759, 0.066138744, -0.99089503, -0.1172702, -0.1660437, 0.10495907, -0.9805168, 1.2451673, 0.349891, 1.2233844)
+transform = Transform3D(0.9851741, 0.07186043, -0.15578116, 0.056676567, -0.99339044, -0.099814065, -0.16192427, 0.08950505, -0.9827357, 1.2570977, 0.35249516, 1.2381794)
 bone_name = "Outer.FR"
 bone_idx = 11
 
@@ -907,7 +909,7 @@ mesh = SubResource("ArrayMesh_n0tt6")
 skeleton = NodePath("")
 
 [node name="Knee_FR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1448881296]
-transform = Transform3D(0.37148187, 0.56478745, -0.7368963, -0.39919782, -0.6194182, -0.6759897, -0.8382376, 0.54528534, -0.0046406686, 0.89833635, 0.73027015, 0.88852954)
+transform = Transform3D(0.3809053, 0.57578695, -0.7234503, -0.4027407, -0.60099024, -0.69036984, -0.8322927, 0.55432844, 0.0029724538, 0.9035121, 0.72155786, 0.89777136)
 bone_name = "Knee.FR"
 bone_idx = 10
 
@@ -917,7 +919,7 @@ mesh = SubResource("ArrayMesh_gil8i")
 skeleton = NodePath("")
 
 [node name="Inner_FR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1530645193]
-transform = Transform3D(0.868982, 0.4817265, -0.1131805, -0.47858623, 0.7600094, -0.4397055, -0.1257995, 0.43626276, 0.89098215, 0.42738056, -0.012746483, 0.46202096)
+transform = Transform3D(0.8655091, 0.48702067, -0.11706744, -0.4834518, 0.75109786, -0.44958454, -0.13102783, 0.44571593, 0.88553315, 0.42738056, -0.012746483, 0.46202096)
 bone_name = "Inner.FR"
 bone_idx = 9
 
@@ -927,7 +929,7 @@ mesh = SubResource("ArrayMesh_hb48o")
 skeleton = NodePath("")
 
 [node name="Outer_FL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1213858710]
-transform = Transform3D(-0.076834105, 0.09453719, -0.9925516, 0.09388578, -0.9903852, -0.1015985, -0.9926133, -0.10099265, 0.06721978, 1.2353911, 0.35005695, -1.227607)
+transform = Transform3D(-0.07965506, 0.08103447, -0.99352306, 0.07568723, -0.9933211, -0.0870859, -0.99394476, -0.08213386, 0.07298984, 1.2483782, 0.35245743, -1.2457327)
 bone_name = "Outer.FL"
 bone_idx = 15
 
@@ -937,7 +939,7 @@ mesh = SubResource("ArrayMesh_fvoba")
 skeleton = NodePath("")
 
 [node name="Knee_FL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=10511958]
-transform = Transform3D(-0.81364846, 0.5564278, -0.16841547, -0.28768572, -0.63710797, -0.71507347, -0.5051856, -0.53336775, 0.6784584, 0.8936937, 0.7412993, -0.9000706)
+transform = Transform3D(-0.80850565, 0.5690567, -0.14997572, -0.29974905, -0.6175307, -0.7271904, -0.50642735, -0.54298264, 0.6698514, 0.8989254, 0.73167753, -0.91229194)
 bone_name = "Knee.FL"
 bone_idx = 14
 
@@ -947,7 +949,7 @@ mesh = SubResource("ArrayMesh_iclrt")
 skeleton = NodePath("")
 
 [node name="Inner_FL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=2055085164]
-transform = Transform3D(-0.15154248, 0.45532995, 0.8773306, -0.3899032, 0.78807425, -0.476355, -0.9083005, -0.41426212, 0.058108002, 0.44854426, -0.029154927, -0.49507073)
+transform = Transform3D(-0.15524587, 0.46068132, 0.8738829, -0.40275908, 0.7782324, -0.48180822, -0.9020442, -0.42676297, 0.064726226, 0.44854426, -0.029154927, -0.49507073)
 bone_name = "Inner.FL"
 bone_idx = 13
 
@@ -957,7 +959,7 @@ mesh = SubResource("ArrayMesh_b4eog")
 skeleton = NodePath("")
 
 [node name="Outer_BR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=648493312]
-transform = Transform3D(-0.16597381, -0.13405994, 0.9769751, 0.099235475, -0.9879575, -0.118708394, 0.98112404, 0.07724798, 0.17727858, -1.3724052, 0.34768096, 1.2219012)
+transform = Transform3D(-0.15785384, -0.13221982, 0.9785703, 0.08307272, -0.9892597, -0.12026373, 0.9839617, 0.06230825, 0.16714244, -1.3741663, 0.34896004, 1.2362297)
 bone_name = "Outer.BR"
 bone_idx = 19
 
@@ -967,7 +969,7 @@ mesh = SubResource("ArrayMesh_04o70")
 skeleton = NodePath("")
 
 [node name="Knee_BR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1550189670]
-transform = Transform3D(0.7425556, -0.6569824, 0.13032618, -0.3388248, -0.53630394, -0.77303004, 0.5777616, 0.5298601, -0.6208375, -0.9689581, 0.67702043, 0.89651895)
+transform = Transform3D(0.7395413, -0.6640761, 0.10991478, -0.35534462, -0.52385867, -0.7741457, 0.57167166, 0.53345513, -0.6233911, -0.966363, 0.670657, 0.90863967)
 bone_name = "Knee.BR"
 bone_idx = 18
 
@@ -977,7 +979,7 @@ mesh = SubResource("ArrayMesh_2o4gv")
 skeleton = NodePath("")
 
 [node name="Inner_BR" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=712894693]
-transform = Transform3D(0.17194057, -0.5454457, -0.8203202, -0.45889622, 0.69250387, -0.5566438, 0.8716939, 0.4721515, -0.13123348, -0.43570787, 0, 0.434924)
+transform = Transform3D(0.1722059, -0.5427913, -0.82202345, -0.47377446, 0.6859949, -0.5522213, 0.8636449, 0.48454946, -0.13902828, -0.43570787, 0, 0.434924)
 bone_name = "Inner.BR"
 bone_idx = 17
 
@@ -987,7 +989,7 @@ mesh = SubResource("ArrayMesh_m6evt")
 skeleton = NodePath("")
 
 [node name="Outer_BL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=745983875]
-transform = Transform3D(-0.96143514, -0.13117778, 0.24173242, 0.10369247, -0.9869541, -0.123162866, 0.25473514, -0.09334767, 0.9624946, -1.3747147, 0.34678867, -1.2061117)
+transform = Transform3D(-0.96334755, -0.12910455, 0.23514509, 0.10562974, -0.98831576, -0.10987871, 0.2465837, -0.08101347, 0.9657293, -1.376699, 0.34813127, -1.2179412)
 bone_name = "Outer.BL"
 bone_idx = 23
 
@@ -997,7 +999,7 @@ mesh = SubResource("ArrayMesh_66iqh")
 skeleton = NodePath("")
 
 [node name="Knee_BL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=415701930]
-transform = Transform3D(-0.23224035, -0.6642523, 0.71051604, -0.5436193, -0.51710397, -0.6611213, 0.8065618, -0.53978956, -0.24100822, -0.96680343, 0.6643375, -0.87463164)
+transform = Transform3D(-0.24632958, -0.6699864, 0.70031404, -0.53896123, -0.505854, -0.67352206, 0.8055073, -0.5433509, -0.23649034, -0.96526647, 0.65877163, -0.88427424)
 bone_name = "Knee.BL"
 bone_idx = 22
 
@@ -1007,7 +1009,7 @@ mesh = SubResource("ArrayMesh_gfwf3")
 skeleton = NodePath("")
 
 [node name="Inner_BL" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=2133473793]
-transform = Transform3D(-0.7995146, -0.55937505, 0.21880513, -0.5934686, 0.67953086, -0.4313149, 0.09258197, -0.4746963, -0.8752667, -0.41993508, 2.9802322e-08, -0.41054884)
+transform = Transform3D(-0.8004288, -0.55780303, 0.21947531, -0.59113294, 0.6738376, -0.44328818, 0.09937682, -0.48455948, -0.8690952, -0.41993508, 2.9802322e-08, -0.41054884)
 bone_name = "Inner.BL"
 bone_idx = 21
 
@@ -1351,7 +1353,7 @@ neighbors = [NodePath("../BL_Target"), NodePath("../MR_Target")]
 script = ExtResource("4_2jqd4")
 
 [node name="FL_Ray" type="RayCast3D" parent="Targets" unique_id=1366709385]
-transform = Transform3D(0.9961947, 0.08715574, 0, -0.08682408, 0.9924039, -0.08715574, -0.0075961226, 0.08682408, 0.9961947, -1.273, 2.13, -1.247)
+transform = Transform3D(0.9729228, 0.22727576, -0.042034607, -0.22679487, 0.9036935, -0.3631835, -0.044556398, 0.36288273, 0.9307689, -0.43470025, 2.13, -0.37428695)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
@@ -1360,7 +1362,7 @@ transform = Transform3D(0.9961947, 0.08715572, 0, -0.0868241, 0.9924039, -0.0871
 top_level = true
 
 [node name="ML_Ray" type="RayCast3D" parent="Targets" unique_id=452467087]
-transform = Transform3D(0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 0, 1, -1.978, 2.13, 0)
+transform = Transform3D(0.87105095, 0.4911926, 0, -0.4911926, 0.87105095, 0, 0, 0, 1, -0.48497188, 2.13, 0)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
@@ -1369,7 +1371,7 @@ transform = Transform3D(0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 
 top_level = true
 
 [node name="BL_Ray" type="RayCast3D" parent="Targets" unique_id=515155054]
-transform = Transform3D(0.9961947, 0.08715574, 0, -0.08682408, 0.9924039, 0.08715574, 0.0075961226, -0.08682408, 0.9961947, -1.193, 2.13, 1.437)
+transform = Transform3D(0.9747392, 0.21933295, 0.042148747, -0.21817617, 0.8946993, 0.38975972, 0.04777669, -0.38910994, 0.91995156, -0.44947255, 2.13, 0.36966634)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
@@ -1378,7 +1380,7 @@ transform = Transform3D(0.9961947, 0.08715574, 0, -0.08682408, 0.9924039, 0.0871
 top_level = true
 
 [node name="FR_Ray" type="RayCast3D" parent="Targets" unique_id=766354583]
-transform = Transform3D(0.9961947, -0.08715574, 0, 0.08682408, 0.9924039, -0.08715574, 0.0075961226, 0.08682408, 0.9961947, 1.254, 2.13, -1.29)
+transform = Transform3D(0.9536287, -0.29316226, 0.06817785, 0.29770866, 0.88539517, -0.35699454, 0.04429298, 0.36073735, 0.93161505, 0.41124934, 2.13, -0.3842817)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
@@ -1387,7 +1389,7 @@ transform = Transform3D(0.9961947, -0.08715574, 0, 0.08682408, 0.9924039, -0.087
 top_level = true
 
 [node name="MR_Ray" type="RayCast3D" parent="Targets" unique_id=1926554903]
-transform = Transform3D(0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, 0, 0, 0, 1, 1.971, 2.13, 0)
+transform = Transform3D(0.8656411, -0.5006649, 0, 0.5006649, 0.8656411, 0, 0, 0, 1, 0.48685956, 2.13, 0)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
@@ -1396,7 +1398,7 @@ transform = Transform3D(0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, 0, 0, 
 top_level = true
 
 [node name="BR_Ray" type="RayCast3D" parent="Targets" unique_id=711570377]
-transform = Transform3D(0.9961947, -0.08715574, 0, 0.08682408, 0.9924039, 0.08715574, -0.0075961226, -0.08682408, 0.9961947, 1.254, 2.13, 1.407)
+transform = Transform3D(0.95416886, -0.28964803, -0.07527143, 0.29522178, 0.86978394, 0.39537388, -0.049049374, -0.39947507, 0.9154309, 0.4082777, 2.13, 0.36386847)
 target_position = Vector3(0, -5, 0)
 script = ExtResource("4_elmg1")
 
