@@ -10,24 +10,29 @@ proj = ExtResource("2_7c1qe")
 velocity = 50.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1306264936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061634377, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08648135, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=339288642]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-radius = 0.051757813
-height = 0.7954712
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -7.450581e-09, 0.14022064)
+radius = 0.08203125
+height = 0.5150299
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=750444152]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.062861204, 0.16310745)
-size = Vector3(0.22351074, 0.20166016, 0.13305664)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.00065612793, 0.11147648, 0.16997391)
+size = Vector3(0.23724365, 0.20166016, 0.15213013)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1478317235]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0020735264, -0.39644676)
+radius = 0.044433594
+height = 0.55804443
 
 [node name="Muzzle" type="Marker3D" parent="." unique_id=31138351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1914325e-05, 0.059720382, -0.40041006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1914325e-05, 0.09026897, -0.6749003)
 
 [node name="Attachment_point" type="Marker3D" parent="." unique_id=2037439815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004250422, 0.17104866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.258752e-05, 0.17104866)
 
 [node name="RayCast3D" parent="." unique_id=357473687 instance=ExtResource("1_jpqjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042060614, 0.17182073, 0.050564468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042060614, 0.20242149, 0.047979057)
 
 [node name="target_node" type="Node3D" parent="." unique_id=1923201691]

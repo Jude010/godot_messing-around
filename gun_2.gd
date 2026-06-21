@@ -40,4 +40,5 @@ func _physics_process(_delta: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(target,"global_position" , view.target_pos , .1)
 	
-	look_at(target.global_position)
+	
+	look_at(target.global_position , get_parent_node_3d().global_basis.y)

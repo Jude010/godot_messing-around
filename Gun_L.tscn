@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://datwi7sch186x"]
+
+[ext_resource type="Script" uid="uid://d38r1btte7m4k" path="res://gun_2.gd" id="1_366wh"]
+[ext_resource type="PackedScene" uid="uid://wm2ldo2g3s6h" path="res://Laser.tscn" id="2_xnubg"]
+
+[node name="Node3D" type="Node3D" unique_id=1887520733]
+script = ExtResource("1_366wh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1920686337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23217261, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2092181277]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, -0.0002834797, 0.09290123, -0.030029295)
+radius = 0.16
+height = 1.9399414
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=650272867]
+transform = Transform3D(1, 0, 0, 0, -0.0058468683, 0.9999829, 0, -0.9999829, -0.0058468683, 0.06896567, -0.045570016, -0.8906709)
+radius = 0.020996094
+height = 0.32421875
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1212693432]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.10221879, -0.002199024)
+radius = 0.13720703
+height = 0.15631104
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=951639767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09290123, -1.060971)
+operation = 2
+radius = 0.16
+
+[node name="RayCast3D" parent="." unique_id=357473687 instance=ExtResource("2_xnubg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06962967, 0.18247378, -1.0518187)
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=2045874725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1914325e-05, 0.32350385, -1.0011787)
+
+[node name="target_node" type="Node3D" parent="." unique_id=191281762]
+
+[node name="Attachment_point" type="Marker3D" parent="." unique_id=375662393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00013659894, -0.0013549775)
