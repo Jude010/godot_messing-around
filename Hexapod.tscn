@@ -1312,49 +1312,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3244879, -0.6, -1.3260787)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/FL_Ray/FL__Step_Target")
-neighbors = [NodePath("../ML_Target"), NodePath("../FR_Target")]
+neighbors = [NodePath("../FR_Target")]
 
 [node name="ML_Target" type="Marker3D" parent="." unique_id=534821462 node_paths=PackedStringArray("target", "neighbors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.035, -0.6, 0)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/ML_Ray/ML__Step_Target")
-neighbors = [NodePath("../FL_Target"), NodePath("../BL_Target"), NodePath("../MR_Target")]
+neighbors = [NodePath("../MR_Target")]
 
 [node name="BL_Target" type="Marker3D" parent="." unique_id=148625367 node_paths=PackedStringArray("target", "neighbors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2956604, -0.6, 1.5005543)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/BL_Ray/BL__Step_Target")
-neighbors = [NodePath("../ML_Target"), NodePath("../BR_Target")]
+neighbors = [NodePath("../BR_Target")]
 
 [node name="FR_Target" type="Marker3D" parent="." unique_id=140223413 node_paths=PackedStringArray("target", "neighbors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.324, -0.6, -1.326)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/FR_Ray/FR__Step_Target")
-neighbors = [NodePath("../FL_Target"), NodePath("../MR_Target")]
+neighbors = [NodePath("../FL_Target")]
 
 [node name="MR_Target" type="Marker3D" parent="." unique_id=1951661314 node_paths=PackedStringArray("target", "neighbors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.035, -0.6, 0)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/MR_Ray/MR__Step_Target")
-neighbors = [NodePath("../FR_Target"), NodePath("../BR_Target"), NodePath("../ML_Target")]
+neighbors = [NodePath("../ML_Target")]
 
 [node name="BR_Target" type="Marker3D" parent="." unique_id=900167891 node_paths=PackedStringArray("target", "neighbors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.296, -0.6, 1.501)
 top_level = true
 script = ExtResource("3_elmg1")
 target = NodePath("../Targets/BR_Ray/BR__Step_Target")
-neighbors = [NodePath("../BL_Target"), NodePath("../MR_Target")]
+neighbors = [NodePath("../BL_Target")]
 
 [node name="Targets" type="Node3D" parent="." unique_id=345718028]
 script = ExtResource("4_2jqd4")
 
 [node name="FL_Ray" type="RayCast3D" parent="Targets" unique_id=1366709385]
-transform = Transform3D(0.9729228, 0.22727576, -0.042034607, -0.22679487, 0.9036935, -0.3631835, -0.044556398, 0.36288273, 0.9307689, -0.43470025, 2.13, -0.37428695)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.9729228, 0.22727576, -0.042034607, -0.22679487, 0.9036935, -0.3631835, -0.044556398, 0.36288273, 0.9307689, -0.6668492, 1.2069298, -0.7449506)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="FL__Step_Target" type="Marker3D" parent="Targets/FL_Ray" unique_id=603850709]
@@ -1362,8 +1362,8 @@ transform = Transform3D(0.9961947, 0.08715572, 0, -0.0868241, 0.9924039, -0.0871
 top_level = true
 
 [node name="ML_Ray" type="RayCast3D" parent="Targets" unique_id=452467087]
-transform = Transform3D(0.87105095, 0.4911926, 0, -0.4911926, 0.87105095, 0, 0, 0, 1, -0.48497188, 2.13, 0)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.87105095, 0.4911926, 0, -0.4911926, 0.87105095, 0, 0, 0, 1, -1.0106057, 1.1978734, 0)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="ML__Step_Target" type="Marker3D" parent="Targets/ML_Ray" unique_id=1001958790]
@@ -1371,8 +1371,8 @@ transform = Transform3D(0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 
 top_level = true
 
 [node name="BL_Ray" type="RayCast3D" parent="Targets" unique_id=515155054]
-transform = Transform3D(0.9747392, 0.21933295, 0.042148747, -0.21817617, 0.8946993, 0.38975972, 0.04777669, -0.38910994, 0.91995156, -0.44947255, 2.13, 0.36966634)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.9747392, 0.21933295, 0.042148747, -0.21817617, 0.8946993, 0.38975972, 0.04777669, -0.38910994, 0.91995156, -0.67276007, 1.2191694, 0.76579195)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="BL__Step_Target" type="Marker3D" parent="Targets/BL_Ray" unique_id=899383328]
@@ -1380,8 +1380,8 @@ transform = Transform3D(0.9961947, 0.08715574, 0, -0.08682408, 0.9924039, 0.0871
 top_level = true
 
 [node name="FR_Ray" type="RayCast3D" parent="Targets" unique_id=766354583]
-transform = Transform3D(0.9536287, -0.29316226, 0.06817785, 0.29770866, 0.88539517, -0.35699454, 0.04429298, 0.36073735, 0.93161505, 0.41124934, 2.13, -0.3842817)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.9536287, -0.29316226, 0.06817785, 0.29770866, 0.88539517, -0.35699454, 0.04429298, 0.36073735, 0.93161505, 0.7155677, 1.2109118, -0.7587467)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="FR__Step_Target" type="Marker3D" parent="Targets/FR_Ray" unique_id=822790876]
@@ -1389,8 +1389,8 @@ transform = Transform3D(0.9961947, -0.08715574, 0, 0.08682408, 0.9924039, -0.087
 top_level = true
 
 [node name="MR_Ray" type="RayCast3D" parent="Targets" unique_id=1926554903]
-transform = Transform3D(0.8656411, -0.5006649, 0, 0.5006649, 0.8656411, 0, 0, 0, 1, 0.48685956, 2.13, 0)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.8656411, -0.5006649, 0, 0.5006649, 0.8656411, 0, 0, 0, 1, 1.0336287, 1.1846455, 0)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="MR__Step_Target" type="Marker3D" parent="Targets/MR_Ray" unique_id=2019183610]
@@ -1398,8 +1398,8 @@ transform = Transform3D(0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, 0, 0, 
 top_level = true
 
 [node name="BR_Ray" type="RayCast3D" parent="Targets" unique_id=711570377]
-transform = Transform3D(0.95416886, -0.28964803, -0.07527143, 0.29522178, 0.86978394, 0.39537388, -0.049049374, -0.39947507, 0.9154309, 0.4082777, 2.13, 0.36386847)
-target_position = Vector3(0, -5, 0)
+transform = Transform3D(0.95416886, -0.28964803, -0.07527143, 0.29522178, 0.86978394, 0.39537388, -0.049049374, -0.39947507, 0.9154309, 0.7309587, 1.1610212, 0.80890185)
+target_position = Vector3(0, -3, 0)
 script = ExtResource("4_elmg1")
 
 [node name="BR__Step_Target" type="Marker3D" parent="Targets/BR_Ray" unique_id=1188492881]

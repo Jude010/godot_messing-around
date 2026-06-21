@@ -1,4 +1,6 @@
+res://Hexapod.tscn
+res://character_body_3d.gd
+res://camera_container.gd
+res://surface_finder.gd
 res://Character_2.tscn
-res://hexapod.gd
-res://Camera_arm.gd
 res://world.tscn

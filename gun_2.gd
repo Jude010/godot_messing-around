@@ -36,7 +36,7 @@ func _ready() -> void:
 	view = $"../../Camera3D"
 	target = $target_node
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(target,"global_position" , view.target_pos , .1)
 	

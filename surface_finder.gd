@@ -20,6 +20,14 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	result.y = normal
 	result.z = transform.basis.x.cross(normal)
 	
+	if result.x == Vector3.ZERO:
+		result.x = Vector3.RIGHT
+	if result.y == Vector3.ZERO:
+		result.y = Vector3.UP
+	if result.z == Vector3.ZERO:
+		result.z = Vector3.BACK
+		
+	
 	result = result.orthonormalized()
 	result.x *= scale.x
 	result.y *= scale.y
@@ -27,9 +35,10 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	
 	return result
 	
+func get_normal_basis() -> Basis:
+	var temp_normal = find_normals()
+	return basis_from_normal(temp_normal)
 	
-func _physics_process(delta: float) -> void:
-	global_basis = quaternion.slerp(Quaternion(basis_from_normal(find_normals())), 1)
-	
-	if Input.is_action_pressed("shoot"):
-		print(find_normals())
+func _physics_process(_delta: float) -> void:
+	var temp_basis = get_normal_basis().orthonormalized()
+	global_basis = Basis(global_basis.get_rotation_quaternion().slerp(temp_basis.get_rotation_quaternion(), 1))

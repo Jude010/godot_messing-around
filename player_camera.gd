@@ -10,7 +10,7 @@ var ray:RayCast3D
 
 func _ready():
 	make_current()
-	target = $"../SpringArm3D/Camera_marker"
+	target = $"../Camera_container/SpringArm3D/Camera_marker"
 	ray = $RayCast3D
 	
 	global_position = target.global_position
@@ -18,7 +18,7 @@ func _ready():
 	
 	ray.target_position = Vector3.FORWARD * ray_len
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	tween = create_tween()
 	tween.tween_property(self , "global_basis" , target.global_basis , 0.1)
 	tween.parallel().tween_property(self, "global_position", target.global_position , 0.2)

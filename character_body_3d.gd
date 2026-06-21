@@ -11,7 +11,7 @@ extends CharacterBody3D
 
 var velocity_accumulator:Vector3 = Vector3.ZERO
 
-@onready var camera = $Camera3D
+@onready var camera:Camera3D = $Camera3D
 
 
 func movement() ->void:
@@ -33,24 +33,27 @@ func movement() ->void:
 	#normalize damp rotate etc
 	dir = dir.normalized()
 	
-	velocity_accumulator *= damping
+	var normals_basis = $Surface_Finder.get_normal_basis()
 	
-	dir = dir.rotated(Vector3.UP , camera.rotation.y)
+	dir = (normals_basis*dir).normalized()
+
+	
+	dir = dir.rotated(normals_basis.y , $Camera_container/SpringArm3D.rotation.y)
 	
 	#apply to velocity accumultator
 	velocity_accumulator += dir * speed
 	velocity_accumulator = velocity_accumulator.limit_length(max_speed)
+	velocity_accumulator *= damping
 	
 	#rotate to face camera if moving
 	if dir != Vector3.ZERO :
-		body.global_rotation.y = rotate_toward(body.global_rotation.y , camera.global_rotation.y , PI/32)
+		body.rotation.y = rotate_toward(body.rotation.y , camera.rotation.y , PI/32)
 	
-
 	
-func _physics_process(delta):
-	
+func _physics_process(_delta):
 	movement()
 	velocity = velocity_accumulator
+	set_up_direction($Surface_Finder.find_normals())
 	
 	
 	move_and_slide()
