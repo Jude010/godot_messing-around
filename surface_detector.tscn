@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b76btq1vxypbf"]
+
+[ext_resource type="Script" uid="uid://cx4jfj5i5fh27" path="res://surface_detector.gd" id="1_amvr3"]
+
+[node name="SurfaceDetector" type="Node3D" unique_id=2055598999]
+script = ExtResource("1_amvr3")
+
+[node name="Down" type="RayCast3D" parent="." unique_id=791956763]
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row1_1" type="RayCast3D" parent="." unique_id=1297458327]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, -0.49999997, 0, 0.49999997, 0.8660253, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row1_2" type="RayCast3D" parent="." unique_id=1754667114]
+transform = Transform3D(0.86602527, -0.5, 0, 0.5, 0.86602527, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row1_3" type="RayCast3D" parent="." unique_id=237932778]
+transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row1_4" type="RayCast3D" parent="." unique_id=1507495487]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_1" type="RayCast3D" parent="." unique_id=1109931316]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_2" type="RayCast3D" parent="." unique_id=2107987591]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_3" type="RayCast3D" parent="." unique_id=1506849020]
+transform = Transform3D(0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_4" type="RayCast3D" parent="." unique_id=1877948386]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_5" type="RayCast3D" parent="." unique_id=814616304]
+transform = Transform3D(0.35355335, 0.61237246, -0.70710677, -0.86602545, 0.49999997, 0, 0.35355335, 0.61237246, 0.70710677, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_6" type="RayCast3D" parent="." unique_id=137461957]
+transform = Transform3D(0.70710677, -0.6123724, -0.3535534, 0, 0.5, -0.8660253, 0.70710677, 0.6123724, 0.3535534, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_7" type="RayCast3D" parent="." unique_id=1175911737]
+transform = Transform3D(0.70710677, -0.61237246, 0.35355335, 0, 0.49999997, 0.86602545, -0.70710677, -0.61237246, 0.35355335, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row2_8" type="RayCast3D" parent="." unique_id=1927264209]
+transform = Transform3D(0.35355335, 0.61237246, 0.70710677, -0.86602545, 0.49999997, 0, -0.35355335, -0.61237246, 0.70710677, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_1" type="RayCast3D" parent="." unique_id=1797150235]
+transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_2" type="RayCast3D" parent="." unique_id=587677094]
+transform = Transform3D(-5.9604645e-08, 1, 0, -1, -5.9604645e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_3" type="RayCast3D" parent="." unique_id=659917269]
+transform = Transform3D(-5.9604645e-08, -1, 0, 1, -5.9604645e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_4" type="RayCast3D" parent="." unique_id=1339451954]
+transform = Transform3D(0.7071067, 0.70710677, -3.0908616e-08, 0, -4.371139e-08, -0.99999994, -0.7071067, 0.70710677, -3.0908616e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_5" type="RayCast3D" parent="." unique_id=253804023]
+transform = Transform3D(-0.70710677, 0.7071067, -3.0908627e-08, 2.1175824e-22, -4.3711385e-08, -1.0000002, -0.70710665, -0.7071068, 3.0908613e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_6" type="RayCast3D" parent="." unique_id=2043371053]
+transform = Transform3D(0.7071066, -0.70710677, 3.0908616e-08, 0, -4.371139e-08, -1, 0.7071067, 0.70710665, -3.0908616e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_7" type="RayCast3D" parent="." unique_id=449080122]
+transform = Transform3D(-0.70710677, -0.70710665, 3.0908613e-08, 0, -4.3711385e-08, -0.9999999, 0.70710665, -0.70710677, 3.090862e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="Row3_8" type="RayCast3D" parent="." unique_id=1298337402]
+transform = Transform3D(0.9999999, -5.9604645e-08, 1.7763568e-15, 0, -4.3711385e-08, -0.9999999, 5.9604645e-08, 0.9999999, -4.371138e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)

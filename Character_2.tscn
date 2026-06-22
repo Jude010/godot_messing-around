@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://545a8bi4mrq" path="res://collision_shape_3d.gd" id="6_l2dkh"]
 [ext_resource type="Script" uid="uid://blw1nid6vr72y" path="res://surface_finder.gd" id="7_4kqpx"]
 [ext_resource type="Script" uid="uid://d1b13x6rlvyci" path="res://camera_container.gd" id="7_kujj8"]
+[ext_resource type="PackedScene" uid="uid://b76btq1vxypbf" path="res://surface_detector.tscn" id="9_gmpt7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uirgk"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -55,6 +56,7 @@ script = ExtResource("6_l2dkh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
 shape = SubResource("SphereShape3D_4kqpx")
 target_position = Vector3(0, 0, 0)
+margin = 0.2
 script = ExtResource("7_4kqpx")
 
 [node name="Camera_container" type="Node3D" parent="." unique_id=1428229069]
@@ -68,3 +70,18 @@ script = ExtResource("4_uirgk")
 
 [node name="Camera_marker" type="Marker3D" parent="Camera_container/SpringArm3D" unique_id=1827488487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.033934772, 0.736941)
+
+[node name="SurfaceDetector" parent="." unique_id=2055598999 instance=ExtResource("9_gmpt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32774746, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="SurfaceDetector" unique_id=76369841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SurfaceDetector/CSGCombiner3D" unique_id=702034355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017578125, 0)
+radius = 0.064453125
+height = 1.9648438
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="SurfaceDetector/CSGCombiner3D" unique_id=1610018713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0814221, 0)
+radius = 0.19527946

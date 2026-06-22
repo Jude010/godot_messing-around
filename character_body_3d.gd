@@ -33,11 +33,9 @@ func movement() ->void:
 	#normalize damp rotate etc
 	dir = dir.normalized()
 	
-	var normals_basis = $Surface_Finder.get_normal_basis()
+	var normals_basis = $SurfaceDetector.get_normal_basis()
 	
 	dir = (normals_basis*dir).normalized()
-
-	
 	dir = dir.rotated(normals_basis.y , $Camera_container/SpringArm3D.rotation.y)
 	
 	#apply to velocity accumultator
@@ -47,13 +45,13 @@ func movement() ->void:
 	
 	#rotate to face camera if moving
 	if dir != Vector3.ZERO :
-		body.rotation.y = rotate_toward(body.rotation.y , camera.rotation.y , PI/32)
+		body.rotation.y = rotate_toward(body.rotation.y , camera.rotation.y , TAU/64)
 	
 	
 func _physics_process(_delta):
 	movement()
 	velocity = velocity_accumulator
-	set_up_direction($Surface_Finder.find_normals())
+	set_up_direction($SurfaceDetector.get_avg_normals())
 	
 	
 	move_and_slide()

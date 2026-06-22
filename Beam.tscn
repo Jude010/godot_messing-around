@@ -12,9 +12,9 @@ point_count = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6qsb"]
 transparency = 1
-albedo_color = Color(0.5966667, 0.5966667, 0.5966667, 1)
+albedo_color = Color(0.48666668, 0.48666668, 0.48666668, 1)
 emission_enabled = true
-emission = Color(0.5966667, 0.5966667, 0.5966667, 1)
+emission = Color(0.48666668, 0.48666668, 0.48666668, 1)
 disable_receive_shadows = true
 
 [sub_resource type="Gradient" id="Gradient_n6qsb"]
@@ -38,7 +38,7 @@ color_gradient = SubResource("Gradient_n6qsb")
 transperency_curve = SubResource("Curve_g5mqe")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=897439651]
-target_position = Vector3(0, 0, -100)
+target_position = Vector3(0, 0, -1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=932426116]
 mesh = SubResource("ImmediateMesh_r0lgn")

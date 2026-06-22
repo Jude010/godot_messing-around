@@ -1,17 +1,15 @@
 @tool
-extends Node3D
+class_name Beam extends Node3D
 
 @export var lifetime:float = 2
 
 @export_category("Geometry")
-@export var side_count:int = 3
-@export var radius:float = .1
 @export_group('Advanced')
-@export var side_start:int = 3
-@export var side_end:int = 3
+@export var side_min:int = 3
+@export var side_max:int = 3
 @export var side_curve:Curve = Curve.new()
-@export var radius_start:float = .1
-@export var radius_end:float = .1
+@export var radius_min:float = .1
+@export var radius_max:float = .1
 @export var radius_curve:Curve = Curve.new()
 
 @export_category("colours")
@@ -22,11 +20,17 @@ extends Node3D
 @export var transperency_curve:Curve
 
 var time_accumulator:float = 0
+var side_count:int = 3
+var radius:float = .1
 
-
+var dist: float:
+	get:
+		return ray.target_position.length()
+	set(val):
+		ray.target_position = val*Vector3.FORWARD
 
 var target:Vector3
-@onready var ray = $RayCast3D
+@onready var ray:RayCast3D = $RayCast3D
 @onready var mesh:ImmediateMesh = $MeshInstance3D.mesh
 
 func _ready() -> void:
@@ -107,26 +111,26 @@ func color_interp():
 	
 func side_interp():
 	var normalised_time = time_accumulator/lifetime
-	var side_dif = side_end - side_start
-	side_count = side_start + int(side_dif*side_curve.sample(normalised_time))
+	var side_dif = side_max - side_min
+	side_count = side_min + int(side_dif*side_curve.sample(normalised_time))
 	
 func rad_interp():
 	var normalised_time = time_accumulator/lifetime
-	var rad_dif = radius_end - radius_start
-	radius = radius_start + rad_dif*radius_curve.sample(normalised_time)
+	var rad_dif = radius_max - radius_min
+	radius = radius_min + rad_dif*radius_curve.sample(normalised_time)
 	
 func transperency_interp():
 	var normalised_time = time_accumulator/lifetime
 	start_colour.a = transperency_curve.sample(normalised_time)
 	end_colour.a = transperency_curve.sample(normalised_time)
-
+	
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		color_gradient.set_color(0 , start_colour)
 		color_gradient.set_color(1,end_colour)
-		check_target()
-	draw_cylinder(position , target)
+	check_target()
+	draw_cylinder(Vector3.ZERO , target)
 	color_interp()
 	side_interp()
 	rad_interp()

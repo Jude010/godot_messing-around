@@ -1,19 +1,37 @@
-extends ShapeCast3D
+extends Node3D
+var children:Array[RayCast3D] = []
 
-
-
-func find_normals() -> Vector3:
-	var avg_normals = Vector3.ZERO
-	if is_colliding():
-		for i in get_collision_count():
-			avg_normals += get_collision_normal(i)
+var reach: float:
+	get:
+		var count:float = 0
+		for i in children:
+			count += i.target_position.length()
+		count /= children.size()
+		return count
+	set(new):
+		for i in children:
+			i.target_position = Vector3.DOWN * new
+			
 		
-		avg_normals = (avg_normals/get_collision_count()).normalized()
-	else:
-		avg_normals = Vector3.UP
-	
-	return avg_normals
+func _ready() -> void:
+	for i:Node3D in get_children():
+		if i.is_class("RayCast3D"):
+			children.push_back(i)
 
+func get_avg_normals() ->Vector3:
+	var normals:Vector3 = Vector3.ZERO
+	var count:int = 0
+	for i in children :
+		if i .is_colliding():
+			normals += i.get_collision_normal()
+			count += 1
+	
+	if count == 0:
+		return Vector3.UP
+	else:
+		normals = (normals/count).normalized()
+		return normals
+	
 func basis_from_normal(normal:Vector3) -> Basis:
 	var result = Basis()
 	result.y = normal
@@ -30,15 +48,7 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	if result.z == Vector3.ZERO:
 		result.z = transform.basis.z
 		print('z')
-		
-	
-	#result = result.orthonormalized()
-	#if result.x == Vector3.ZERO:
-		#print('ox')
-	#if result.y == Vector3.ZERO:
-		#print('oy')
-	#if result.z == Vector3.ZERO:
-		#print('oz')
+
 	result.x *= scale.x
 	result.y *= scale.y
 	result.z *= scale.z
@@ -54,12 +64,9 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	
 	
 func get_normal_basis() -> Basis:
-	var temp_normal = find_normals()
+	var temp_normal = get_avg_normals()
 	return basis_from_normal(temp_normal)
-	
-func _input(event) -> void:
-	if event.is_action_pressed("shoot"):
-		print(get_collision_count())
+		
 	
 func _physics_process(_delta: float) -> void:
 	var temp_basis = get_normal_basis()

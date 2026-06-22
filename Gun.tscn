@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ci3hgxrqxctpf"]
 
-[ext_resource type="Script" uid="uid://d38r1btte7m4k" path="res://gun_2.gd" id="1_7c1qe"]
+[ext_resource type="Script" uid="uid://d38r1btte7m4k" path="res://gun_Proj.gd" id="1_7c1qe"]
 [ext_resource type="PackedScene" uid="uid://wm2ldo2g3s6h" path="res://Laser.tscn" id="1_jpqjm"]
 [ext_resource type="PackedScene" uid="uid://d2gyruoow0h4j" path="res://bullet_1.tscn" id="2_7c1qe"]
 

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://datwi7sch186x"]
 
-[ext_resource type="Script" uid="uid://d38r1btte7m4k" path="res://gun_2.gd" id="1_366wh"]
+[ext_resource type="Script" uid="uid://b8oel74nibgk0" path="res://Gun_Beam.gd" id="1_366wh"]
+[ext_resource type="PackedScene" uid="uid://c3g5fasuqsdla" path="res://Beam.tscn" id="2_2xjk7"]
 [ext_resource type="PackedScene" uid="uid://wm2ldo2g3s6h" path="res://Laser.tscn" id="2_xnubg"]
 
 [node name="Node3D" type="Node3D" unique_id=1887520733]
 script = ExtResource("1_366wh")
+shot = ExtResource("2_2xjk7")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1920686337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23217261, 0)

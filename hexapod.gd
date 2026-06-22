@@ -22,7 +22,14 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	result.y = normal
 	result.z = transform.basis.x.cross(normal)
 	
-	result = result.orthonormalized()
+	if result.x == Vector3.ZERO:
+		result.x = transform.basis.x
+	if result.y == Vector3.ZERO:
+		result.y = transform.basis.y
+	if result.z == Vector3.ZERO:
+		result.z = transform.basis.z
+	
+	#result = result.orthonormalized()
 	result.x *= scale.x
 	result.y *= scale.y
 	result.z *= scale.z
@@ -31,6 +38,6 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	
 func _physics_process(_delta: float) -> void:
 	var target_basis = basis_from_normal($"../Surface_Finder".find_normals()).orthonormalized()
-	global_basis = Basis(global_basis.get_rotation_quaternion().slerp(target_basis.get_rotation_quaternion() , .1))
+	basis = Basis(basis.get_rotation_quaternion().slerp(target_basis.get_rotation_quaternion() , .1))
 	
 	

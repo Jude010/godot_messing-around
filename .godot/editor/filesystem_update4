@@ -1,2 +1,9 @@
-res://Beam.tscn
-res://beam.gd
+res://Character_2.tscn
+res://character_body_3d.gd
+res://Hexapod.tscn
+res://hexapod.gd
+res://world.tscn
+res://surface_finder.gd
+res://camera_container.gd
+res://surface_detector.tscn
+res://surface_detector.gd

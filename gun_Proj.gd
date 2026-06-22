@@ -28,7 +28,7 @@ func _input(event) -> void:
 	if event.is_action_pressed("shoot"):
 		shoot()
 		
-func remove_bullet(bullet:RigidBody3D) -> void:
+func remove_bullet(bullet:RigidBody3D) -> void: 
 	projectiles.erase(bullet)
 
 

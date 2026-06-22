@@ -17,5 +17,6 @@ func _on_body_entered(_body: Node) -> void:
 
 
 func _on_gpu_particles_3d_finished() -> void:
+	get_parent().remove_bullet(self)
 	if mark_for_delete :
 		self.queue_free()
