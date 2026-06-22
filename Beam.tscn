@@ -2,14 +2,40 @@
 
 [ext_resource type="Script" uid="uid://cgyj6iyeckv0l" path="res://beam.gd" id="1_n6qsb"]
 
+[sub_resource type="Curve" id="Curve_n6qsb"]
+_data = [Vector2(0.50708216, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_r0lgn"]
+_data = [Vector2(0.49858356, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6qsb"]
+transparency = 1
+albedo_color = Color(0.5966667, 0.5966667, 0.5966667, 1)
+emission_enabled = true
+emission = Color(0.5966667, 0.5966667, 0.5966667, 1)
+disable_receive_shadows = true
+
+[sub_resource type="Gradient" id="Gradient_n6qsb"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_g5mqe"]
+_data = [Vector2(0.50136983, 1), 0.0, 0.0, 0, 0]
+point_count = 1
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_r0lgn"]
 
 [node name="Beam" type="Node3D" unique_id=1293534750]
 script = ExtResource("1_n6qsb")
-radius = 0.8000000000000267
+lifetime = 5.0
+side_curve = SubResource("Curve_n6qsb")
+radius_curve = SubResource("Curve_r0lgn")
 material = SubResource("StandardMaterial3D_n6qsb")
+start_colour = Color(1, 1, 1, 1)
+end_colour = Color(0, 0, 0, 1)
+color_gradient = SubResource("Gradient_n6qsb")
+transperency_curve = SubResource("Curve_g5mqe")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=897439651]
 target_position = Vector3(0, 0, -100)

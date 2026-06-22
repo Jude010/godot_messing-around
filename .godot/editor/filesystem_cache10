@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1782089283
-beam.gd::GDScript::5244121765304720673::1782089245::0::1::::<>Node3D<><>0<>1<><>::
-Beam.tscn::PackedScene::6752345723265266578::1782089245::0::1::::<><><>0<>0<><>::uid://cgyj6iyeckv0l::::res://beam.gd
+::res://::1782129579
+beam.gd::GDScript::5244121765304720673::1782126170::0::1::::<>Node3D<><>0<>1<><>::
+Beam.tscn::PackedScene::6752345723265266578::1782126199::0::1::::<><><>0<>0<><>::uid://cgyj6iyeckv0l::::res://beam.gd
 Body_limit_cone.tres::JointLimitationCone3D::7522712520263531387::1781370595::0::1::::<><><>0<>0<><>::
 bullet_1.gd::GDScript::4168598736817412673::1781132962::0::1::::<>RigidBody3D<><>0<>0<><>::
 bullet_1.tscn::PackedScene::9068235734914066279::1781651190::0::1::::<><><>0<>0<><>::uid://b0nkhhitaoofp::::res://bullet_1.gd
