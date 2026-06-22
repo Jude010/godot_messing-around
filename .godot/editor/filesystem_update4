@@ -1,5 +1,2 @@
-res://world.tscn
-res://Character_2.tscn
-res://Hexapod.tscn
-res://gun_2.gd
-res://Gun_L.tscn
+res://Beam.tscn
+res://beam.gd

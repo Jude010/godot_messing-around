@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3g5fasuqsdla"]
+
+[ext_resource type="Script" uid="uid://cgyj6iyeckv0l" path="res://beam.gd" id="1_n6qsb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6qsb"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_r0lgn"]
+
+[node name="Beam" type="Node3D" unique_id=1293534750]
+script = ExtResource("1_n6qsb")
+radius = 0.8000000000000267
+material = SubResource("StandardMaterial3D_n6qsb")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=897439651]
+target_position = Vector3(0, 0, -100)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=932426116]
+mesh = SubResource("ImmediateMesh_r0lgn")
