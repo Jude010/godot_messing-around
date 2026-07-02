@@ -37,7 +37,7 @@ func basis_from_normal(normal:Vector3) -> Basis:
 	return result
 	
 func _physics_process(_delta: float) -> void:
-	var target_basis = basis_from_normal($"../Surface_Finder".find_normals()).orthonormalized()
+	var target_basis = basis_from_normal($"../SurfaceDetector".get_avg_normals()).orthonormalized()
 	basis = Basis(basis.get_rotation_quaternion().slerp(target_basis.get_rotation_quaternion() , .1))
 	
 	

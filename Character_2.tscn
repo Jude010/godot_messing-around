@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://wvwfvu52krki" path="res://character_body_3d.gd" id="1_jnpbt"]
 [ext_resource type="PackedScene" uid="uid://ci3hgxrqxctpf" path="res://Gun.tscn" id="2_ogg8d"]
+[ext_resource type="Script" uid="uid://w5o3d0pephep" path="res://FPS_counter.gd" id="3_gmpt7"]
 [ext_resource type="Script" uid="uid://dic8fbu81rctm" path="res://player_camera.gd" id="3_njhix"]
 [ext_resource type="Script" uid="uid://cnliq5m5m3gak" path="res://Camera_arm.gd" id="4_uirgk"]
 [ext_resource type="PackedScene" uid="uid://cp8281no25i8c" path="res://Hexapod.tscn" id="5_acde3"]
 [ext_resource type="Script" uid="uid://545a8bi4mrq" path="res://collision_shape_3d.gd" id="6_l2dkh"]
-[ext_resource type="Script" uid="uid://blw1nid6vr72y" path="res://surface_finder.gd" id="7_4kqpx"]
 [ext_resource type="Script" uid="uid://d1b13x6rlvyci" path="res://camera_container.gd" id="7_kujj8"]
 [ext_resource type="PackedScene" uid="uid://b76btq1vxypbf" path="res://surface_detector.tscn" id="9_gmpt7"]
 
@@ -15,9 +15,6 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kujj8"]
 radius = 1.0642343
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_4kqpx"]
-radius = 1.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uirgk"]
 
@@ -38,6 +35,11 @@ target_position = Vector3(0, 0, -10)
 [node name="Meshinstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=664902772]
 mesh = SubResource("BoxMesh_uirgk")
 
+[node name="Label" type="Label" parent="Camera3D" unique_id=1743785748]
+offset_right = 82.0
+offset_bottom = 42.0
+script = ExtResource("3_gmpt7")
+
 [node name="hexapod" parent="." unique_id=1050513818 instance=ExtResource("5_acde3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
 
@@ -51,13 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36240366, 0.2672931, -0.16
 transform = Transform3D(-0.92387956, 0, -0.38268337, 0, -1, 0, 0.38268337, 0, -0.92387956, 0, 0.38658917, 0)
 shape = SubResource("SphereShape3D_kujj8")
 script = ExtResource("6_l2dkh")
-
-[node name="Surface_Finder" type="ShapeCast3D" parent="." unique_id=2066783691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
-shape = SubResource("SphereShape3D_4kqpx")
-target_position = Vector3(0, 0, 0)
-margin = 0.2
-script = ExtResource("7_4kqpx")
 
 [node name="Camera_container" type="Node3D" parent="." unique_id=1428229069]
 script = ExtResource("7_kujj8")
@@ -76,6 +71,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32774746, 0)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="SurfaceDetector" unique_id=76369841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38711584, 0)
+layers = 0
+calculate_tangents = false
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SurfaceDetector/CSGCombiner3D" unique_id=702034355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017578125, 0)

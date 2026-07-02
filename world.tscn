@@ -13,7 +13,6 @@ sky = SubResource("Sky_fj7yv")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 glow_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]

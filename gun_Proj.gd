@@ -21,7 +21,6 @@ func shoot() ->void:
 	bullet.global_basis = $Muzzle.global_basis
 	bullet.set_vel(velocity)
 	projectiles.push_front(bullet)
-	#set timer to delete bullet
 	
 
 func _input(event) -> void:
@@ -39,6 +38,5 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(target,"global_position" , view.target_pos , .1)
-	
-	
+
 	look_at(target.global_position , get_parent_node_3d().global_basis.y)

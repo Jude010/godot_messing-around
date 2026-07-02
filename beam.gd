@@ -129,8 +129,8 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		color_gradient.set_color(0 , start_colour)
 		color_gradient.set_color(1,end_colour)
+		draw_cylinder(Vector3.ZERO , target)
 	check_target()
-	draw_cylinder(Vector3.ZERO , target)
 	color_interp()
 	side_interp()
 	rad_interp()

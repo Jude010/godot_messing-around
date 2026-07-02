@@ -23,3 +23,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_wheel_down"):
 		spring_length += scroll_scale
 		spring_length = clampf(spring_length , .1 , 6)
+		
+	if event.is_action_pressed("Escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

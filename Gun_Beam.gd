@@ -29,14 +29,9 @@ func _ready() -> void:
 func shoot() ->void:
 	pass
 
-	
-
 func _input(event) -> void:
 	if event.is_action("shoot"):
 		shoot()
-		
-func remove_beam(beam) -> void:
-	pass
 
 
 

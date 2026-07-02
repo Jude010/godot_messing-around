@@ -1,9 +1,10 @@
+res://Laser.tscn
+res://laser.gd
 res://Character_2.tscn
-res://character_body_3d.gd
-res://Hexapod.tscn
-res://hexapod.gd
-res://world.tscn
-res://surface_finder.gd
-res://camera_container.gd
 res://surface_detector.tscn
 res://surface_detector.gd
+res://Gun_L.tscn
+res://cont_beam.gd
+res://Gun_Beam.gd
+res://cont_beam.tscn
+res://beam.gd

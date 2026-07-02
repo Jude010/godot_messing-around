@@ -22,8 +22,8 @@ radius = 0.020996094
 height = 0.32421875
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1212693432]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.10221879, -0.002199024)
-radius = 0.13720703
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.23145606, 0)
+radius = 0.24169922
 height = 0.15631104
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=951639767]

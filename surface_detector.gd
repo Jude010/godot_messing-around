@@ -1,7 +1,9 @@
 extends Node3D
 var children:Array[RayCast3D] = []
 
-var reach: float:
+@export var reach:float =1.5
+
+var length: float:
 	get:
 		var count:float = 0
 		for i in children:
@@ -17,6 +19,7 @@ func _ready() -> void:
 	for i:Node3D in get_children():
 		if i.is_class("RayCast3D"):
 			children.push_back(i)
+	length = reach
 
 func get_avg_normals() ->Vector3:
 	var normals:Vector3 = Vector3.ZERO

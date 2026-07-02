@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dws5xgcqr2m22"]
+
+[ext_resource type="Script" uid="uid://dpibrin71qrh8" path="res://cont_beam.gd" id="1_ji4m7"]
+[ext_resource type="PackedScene" uid="uid://c3g5fasuqsdla" path="res://Beam.tscn" id="2_2pxbu"]
+
+[sub_resource type="Curve" id="Curve_ji4m7"]
+
+[sub_resource type="Gradient" id="Gradient_ji4m7"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.54901963, 0, 1)
+
+[sub_resource type="Curve" id="Curve_2pxbu"]
+
+[node name="Cont_beam" type="Node3D" unique_id=1738298333]
+script = ExtResource("1_ji4m7")
+shot = ExtResource("2_2pxbu")
+side_curve = SubResource("Curve_ji4m7")
+color_gradient = SubResource("Gradient_ji4m7")
+transperency_curve = SubResource("Curve_2pxbu")
