@@ -7,37 +7,20 @@ extends Node3D
 @onready var mr_leg = $MR_Target
 @onready var br_leg = $BR_Target
 
+@onready var surface_detector:Node3D = $"../SurfaceDetector"
+
 
 func calc_average_leg_normal() -> Vector3:
 	var plane1:Plane = Plane(bl_leg.global_position , fl_leg.global_position , mr_leg.global_position)
 	var plane2:Plane = Plane(fr_leg.global_position , br_leg.global_position , ml_leg.global_position)
 		
-	var avg_normal = ((plane1.normal + plane2.normal)/2).normalized()
+	var avg_normal: = ((plane1.normal + plane2.normal)/2).normalized()
 	return avg_normal
 
 
-func basis_from_normal(normal:Vector3) -> Basis:
-	var result = Basis()
-	result.x = normal.cross(transform.basis.z)
-	result.y = normal
-	result.z = transform.basis.x.cross(normal)
-	
-	if result.x == Vector3.ZERO:
-		result.x = transform.basis.x
-	if result.y == Vector3.ZERO:
-		result.y = transform.basis.y
-	if result.z == Vector3.ZERO:
-		result.z = transform.basis.z
-	
-	#result = result.orthonormalized()
-	result.x *= scale.x
-	result.y *= scale.y
-	result.z *= scale.z
-	
-	return result
-	
 func _physics_process(_delta: float) -> void:
-	var target_basis = basis_from_normal($"../SurfaceDetector".get_avg_normals()).orthonormalized()
-	basis = Basis(basis.get_rotation_quaternion().slerp(target_basis.get_rotation_quaternion() , .1))
+	var target_basis:Basis = surface_detector.get_normal_basis_to_camera(self)
+	var target_quat:Quaternion = target_basis.get_rotation_quaternion()
+	global_basis = Basis(global_basis.get_rotation_quaternion().slerp(target_quat , .1))
 	
 	

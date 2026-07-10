@@ -1,10 +1,6 @@
-res://Laser.tscn
-res://laser.gd
 res://Character_2.tscn
-res://surface_detector.tscn
+res://hexapod.gd
+res://FPS_counter.gd
 res://surface_detector.gd
-res://Gun_L.tscn
-res://cont_beam.gd
-res://Gun_Beam.gd
-res://cont_beam.tscn
-res://beam.gd
+res://surface_detector.tscn
+res://Hexapod.tscn
