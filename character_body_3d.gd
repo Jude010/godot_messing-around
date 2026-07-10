@@ -15,7 +15,7 @@ var velocity_accumulator:Vector3 = Vector3.ZERO
 @onready var camera:Camera3D = $Camera3D
 @onready var surface_detector:Node3D = $SurfaceDetector
 
-func movement() ->void:
+func movement(delta:float) ->void:
 	var dir:Vector3 = Vector3.ZERO
 	# take input 
 	if Input.is_action_pressed("forward"):
@@ -46,8 +46,12 @@ func movement() ->void:
 	
 	#rotate to face camera if moving
 	if dir != Vector3.ZERO :
-		body.rotation.y = rotate_toward(body.rotation.y , camera.rotation.y , TAU/64)
-	
+		var temp_dir = body.basis.z.move_toward(camera.basis.z , 5*delta)
+		var temp_basis:Basis = Basis.looking_at(temp_dir , body.basis.y , true)
+		temp_basis.y = body.basis.y
+		temp_basis = temp_basis.orthonormalized()
+		body.basis = temp_basis
+		
 func calc_gravity() -> Vector3:
 	if $SurfaceDetector.is_colliding():
 		return Vector3.ZERO
@@ -55,8 +59,8 @@ func calc_gravity() -> Vector3:
 		return Vector3.DOWN * gravity
 	
 	
-func _physics_process(_delta):
-	movement()
+func _physics_process(delta):
+	movement(delta)
 	velocity = velocity_accumulator + calc_gravity()
 	set_up_direction(surface_detector.get_avg_normals())
 	

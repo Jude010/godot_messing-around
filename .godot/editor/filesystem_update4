@@ -1,6 +1,3 @@
+res://character_body_3d.gd
 res://Character_2.tscn
-res://hexapod.gd
 res://FPS_counter.gd
-res://surface_detector.gd
-res://surface_detector.tscn
-res://Hexapod.tscn
